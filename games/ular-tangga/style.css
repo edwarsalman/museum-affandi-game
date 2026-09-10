@@ -1,0 +1,915 @@
+/* =========================================================
+   MUSEUM AFFANDI
+   ULAR TANGGA
+   STYLE
+   ========================================================= */
+
+
+/* =========================================================
+   SCREEN
+   ========================================================= */
+
+.ut-screen {
+  padding-top: 110px;
+  justify-content: flex-start;
+}
+
+
+/* =========================================================
+   HUD
+   ========================================================= */
+
+.ut-hud {
+  display: flex;
+  gap: 12px;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.ut-title {
+  color: var(--clay-dark);
+  font-size: 28px;
+  margin: 0 0 16px;
+}
+
+
+/* =========================================================
+   GAME LAYOUT
+   ========================================================= */
+
+.ut-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+
+/* =========================================================
+   BOARD WRAPPER
+   ========================================================= */
+
+.ut-board-wrap {
+  background: #f8f8f7;
+
+  border-radius: 18px;
+
+  padding: 12px;
+
+  box-shadow:
+    0 20px 40px rgba(48, 42, 30, 0.15);
+
+  border:
+    4px solid rgba(35, 25, 15, 0.8);
+}
+
+
+/* =========================================================
+   BOARD
+   ========================================================= */
+
+.ut-board {
+  position: relative;
+
+  width: min(74vh, 780px);
+  height: min(74vh, 780px);
+
+  background: #f4e4b8;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  box-shadow:
+    inset 0 0 0 4px rgba(25, 20, 9, 0.7);
+
+  border:
+    2px solid rgba(25, 20, 9, 0.9);
+}
+
+
+/* =========================================================
+   CELL
+   ========================================================= */
+
+.ut-cell {
+  position: absolute;
+
+  box-sizing: border-box;
+
+  border:
+    3px solid rgba(27, 23, 14, 0.8);
+
+  background-color: #f4ddae;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: flex-start;
+
+  overflow: hidden;
+
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.15);
+
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* =========================================================
+   CELL HOVER
+   ========================================================= */
+
+.ut-cell:hover {
+  filter: brightness(1.05);
+}
+
+
+/* =========================================================
+   NOMOR CELL
+   ========================================================= */
+
+.ut-cell .cell-num {
+  position: absolute;
+
+  top: 5px;
+  left: 5px;
+
+  z-index: 5;
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  color: #1a1a1a;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  padding:
+    4px 6px;
+
+  border-radius: 5px;
+
+  border:
+    2px solid rgba(32, 29, 26, 0.35);
+
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.08);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SPECIAL CELL
+   ========================================================= */
+
+.ut-cell.special-cell {
+  background-color: #f0d198 !important;
+}
+
+
+/*
+  Foto tetap ditampilkan pada special cell.
+*/
+
+
+/* =========================================================
+   FINISH CELL
+   ========================================================= */
+
+.ut-cell.finish {
+  outline:
+    4px solid #1c1c1c;
+
+  outline-offset:
+    -4px;
+}
+
+
+/* =========================================================
+   LADDER
+   ========================================================= */
+
+.ut-cell.ladder-bottom {
+  box-shadow:
+    inset 0 0 0 3px
+    rgba(44, 125, 85, 0.8);
+}
+
+
+.ut-cell.ladder-top {
+  box-shadow:
+    inset 0 0 0 3px
+    rgba(44, 125, 85, 0.8),
+
+    inset 0 0 0 7px
+    rgba(44, 125, 85, 0.12);
+}
+
+
+/* =========================================================
+   SNAKE
+   ========================================================= */
+
+.ut-cell.snake-top {
+  box-shadow:
+    inset 0 0 0 3px
+    rgba(176, 68, 48, 0.8);
+}
+
+
+.ut-cell.snake-bottom {
+  box-shadow:
+    inset 0 0 0 3px
+    rgba(176, 68, 48, 0.7),
+
+    inset 0 0 0 7px
+    rgba(176, 68, 48, 0.12);
+}
+
+
+/* =========================================================
+   CONNECTOR SVG
+   ========================================================= */
+
+.connector-svg {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   LADDER
+   ========================================================= */
+
+.connector-rail {
+  stroke: #177652;
+
+  stroke-width: 7;
+
+  stroke-linecap: round;
+
+  fill: none;
+}
+
+
+.connector-rung {
+  stroke: #136448;
+
+  stroke-width: 5;
+
+  stroke-linecap: round;
+
+  fill: none;
+}
+
+
+/* =========================================================
+   SNAKE
+   ========================================================= */
+
+.connector-snake-body {
+  stroke-width: 1.6;
+
+  stroke-linejoin: round;
+
+  filter:
+    drop-shadow(
+      0 3px 3px
+      rgba(0, 0, 0, 0.28)
+    );
+}
+
+
+.connector-snake-belly {
+  fill: none;
+
+  stroke-width: 1.4;
+
+  stroke-linecap: round;
+
+  opacity: 0.55;
+
+  stroke-dasharray: 2 5;
+}
+
+
+.connector-snake-scale {
+  fill: none;
+
+  stroke-width: 1.1;
+
+  opacity: 0.5;
+
+  stroke-linecap: round;
+}
+
+
+/* =========================================================
+   SNAKE HEAD
+   ========================================================= */
+
+.connector-head {
+  stroke-width: 1.6;
+
+  filter:
+    drop-shadow(
+      0 2px 3px
+      rgba(0, 0, 0, 0.3)
+    );
+}
+
+
+.connector-eye-bg {
+  fill: #f4d35e;
+
+  stroke: #1b1b1b;
+
+  stroke-width: 1;
+}
+
+
+.connector-eye-pupil {
+  fill: #1b1b1b;
+}
+
+
+.connector-nostril {
+  fill:
+    rgba(0, 0, 0, 0.55);
+}
+
+
+.connector-tongue {
+  stroke: #c62b3a;
+
+  stroke-width: 2;
+
+  fill: none;
+
+  stroke-linecap: round;
+}
+
+
+/* =========================================================
+   PLAYER TOKEN
+   ========================================================= */
+
+.token {
+  position: absolute;
+
+  width: var(--token-size, 30px);
+
+  height: var(--token-size, 30px);
+
+  border-radius: 50%;
+
+  border:
+    4px solid var(--white);
+
+  outline:
+    2px solid
+    rgba(0, 0, 0, 0.25);
+
+  box-shadow:
+    0 4px 10px
+    rgba(0, 0, 0, 0.45);
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  z-index: 10;
+
+  transition:
+    left 0.35s ease,
+    top 0.35s ease;
+}
+
+
+/* =========================================================
+   SIDE PANEL
+   ========================================================= */
+
+.ut-side {
+  width: 280px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   PLAYERS
+   ========================================================= */
+
+.players {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   PLAYER ROW
+   ========================================================= */
+
+.player-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  background: var(--white);
+
+  border-radius: 12px;
+
+  padding: 10px 14px;
+
+  box-shadow: var(--shadow);
+
+  font-weight: 700;
+}
+
+
+/* ACTIVE PLAYER */
+
+.player-row.active {
+  outline:
+    3px solid var(--ochre);
+}
+
+
+/* =========================================================
+   PLAYER PHOTO
+   ========================================================= */
+
+.player-dot {
+  width: 56px;
+
+  height: 56px;
+
+  border-radius: 50%;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  flex-shrink: 0;
+
+  border:
+    3px solid var(--white);
+
+  outline:
+    2px solid
+    rgba(0, 0, 0, 0.12);
+
+  box-shadow:
+    0 3px 8px
+    rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   PLAYER POSITION
+   ========================================================= */
+
+.player-pos {
+  margin-left: auto;
+
+  color: var(--ink);
+
+  font-weight: 400;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   DICE AREA
+   ========================================================= */
+
+.dice-area {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(248, 242, 231, 0.94)
+    );
+
+  border-radius: var(--radius);
+
+  padding:
+    22px 18px 18px;
+
+  text-align: center;
+
+  box-shadow: var(--shadow);
+
+  border:
+    2px solid
+    rgba(58, 100, 78, 0.12);
+}
+
+
+/* =========================================================
+   DICE
+   ========================================================= */
+
+.dice {
+  position: relative;
+
+  width: 136px;
+
+  height: 136px;
+
+  margin:
+    0 auto 18px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffef9 0%,
+      #f5d66a 25%,
+      #d9912d 100%
+    );
+
+  box-shadow:
+    inset 0 4px 10px
+    rgba(255, 255, 255, 0.9),
+
+    inset 0 -12px 18px
+    rgba(58, 100, 78, 0.18),
+
+    0 18px 26px
+    rgba(58, 100, 78, 0.18),
+
+    0 0 0 6px
+    rgba(232, 174, 33, 0.15);
+
+  transform-style: preserve-3d;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   DICE INNER
+   ========================================================= */
+
+.dice::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 10px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.18);
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.7);
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   DICE FACE
+   ========================================================= */
+
+.dice-face {
+  position: absolute;
+
+  inset: 18px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.78);
+
+  box-shadow:
+    inset 0 0 0 2px
+    rgba(58, 100, 78, 0.08);
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   DICE DOT
+   ========================================================= */
+
+.dice-dot {
+  position: absolute;
+
+  width: 16px;
+
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: var(--green-deep);
+
+  transform:
+    translate(-50%, -50%);
+
+  box-shadow:
+    0 1px 0
+    rgba(255, 255, 255, 0.25);
+}
+
+
+/* =========================================================
+   DICE ANIMATION
+   ========================================================= */
+
+.dice.rolling {
+  animation:
+    diceFloat
+    0.22s
+    ease-in-out
+    infinite alternate;
+}
+
+
+.dice.rolling .dice-face {
+  animation:
+    diceSpin
+    0.08s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   DICE SPIN
+   ========================================================= */
+
+@keyframes diceSpin {
+
+  0% {
+    transform:
+      rotate(0deg)
+      scale(1)
+      rotateY(0deg);
+  }
+
+  25% {
+    transform:
+      rotate(12deg)
+      scale(1.04)
+      rotateY(30deg);
+  }
+
+  50% {
+    transform:
+      rotate(-14deg)
+      scale(1.08)
+      rotateY(180deg);
+  }
+
+  75% {
+    transform:
+      rotate(10deg)
+      scale(1.04)
+      rotateY(300deg);
+  }
+
+  100% {
+    transform:
+      rotate(0deg)
+      scale(1)
+      rotateY(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   DICE FLOAT
+   ========================================================= */
+
+@keyframes diceFloat {
+
+  0% {
+    transform:
+      translateY(0)
+      rotateX(10deg)
+      rotateY(-8deg);
+  }
+
+  100% {
+    transform:
+      translateY(-6px)
+      rotateX(-10deg)
+      rotateY(8deg);
+  }
+
+}
+
+
+/* =========================================================
+   TURN TEXT
+   ========================================================= */
+
+.turn-text {
+  margin-top: 12px;
+
+  font-weight: 700;
+
+  color: var(--green-deep);
+
+  letter-spacing: 0.02em;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .ut-layout {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .ut-side {
+    width: min(780px, 100%);
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .ut-screen {
+    padding-top: 80px;
+  }
+
+  .ut-title {
+    font-size: 22px;
+  }
+
+  .ut-board {
+    width: 92vw;
+    height: 92vw;
+  }
+
+  .ut-board-wrap {
+    padding: 6px;
+    border-width: 3px;
+  }
+
+  .ut-side {
+    width: 92vw;
+  }
+
+}
+
+/* ===========================================================
+   RESPONSIVE SNAKES & LADDERS
+   =========================================================== */
+
+.ut-screen {
+  padding-top: clamp(12px, 2vw, 28px);
+}
+
+.ut-layout {
+  width: min(1200px, 100%);
+  justify-content: center;
+  gap: clamp(16px, 3vw, 30px);
+}
+
+.ut-board-wrap {
+  flex: 0 1 auto;
+  padding: clamp(6px, 1vw, 12px);
+}
+
+.ut-board {
+  width: min(70vw, 70svh, 780px);
+  height: min(70vw, 70svh, 780px);
+  max-width: 780px;
+  max-height: 780px;
+  aspect-ratio: 1;
+}
+
+.ut-side {
+  width: min(320px, 30vw);
+  max-width: 320px;
+}
+
+@media (max-width: 1050px) {
+  .ut-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ut-board {
+    width: min(78vw, 64svh, 700px);
+    height: min(78vw, 64svh, 700px);
+  }
+
+  .ut-side {
+    width: min(700px, 100%);
+    max-width: 700px;
+  }
+
+  .players {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .ut-title {
+    font-size: clamp(21px, 6vw, 28px);
+    text-align: center;
+  }
+
+  .ut-hud {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ut-board {
+    width: min(92vw, 72svh, 560px);
+    height: min(92vw, 72svh, 560px);
+  }
+
+  .ut-side {
+    width: 100%;
+  }
+
+  .players {
+    grid-template-columns: 1fr;
+  }
+
+  .dice {
+    width: clamp(96px, 28vw, 136px);
+    height: clamp(96px, 28vw, 136px);
+  }
+
+  .dice-dot {
+    width: clamp(12px, 3.5vw, 16px);
+    height: clamp(12px, 3.5vw, 16px);
+  }
+
+  .ut-cell .cell-num {
+    top: 2px;
+    left: 2px;
+    font-size: clamp(8px, 2.2vw, 12px);
+    padding: 2px 4px;
+    border-width: 1px;
+  }
+}
+
+@media (max-height: 650px) and (orientation: landscape) {
+  .ut-board {
+    width: min(56vw, 78svh, 620px);
+    height: min(56vw, 78svh, 620px);
+  }
+}
