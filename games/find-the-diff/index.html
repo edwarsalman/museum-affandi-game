@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+    <title data-i18n="title.fd">Cari Perbedaan - Museum Affandi</title>
+    <link rel="stylesheet" href="../../shared/main.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page-find-diff">
+    <div class="screen fd-screen">
+      <div class="topbar">
+        <button class="btn ghost" onclick="goHome()" data-i18n="common.backMenu">← Menu Utama</button>
+        <div class="fd-hud">
+          <div class="hud-pill"><span data-i18n="common.painting">Lukisan</span> <span id="hud-level">1</span>/5</div>
+          <div class="hud-pill">
+            <span data-i18n="fd.found">Ditemukan</span> <span id="hud-found">0</span>/<span id="hud-total">4</span>
+          </div>
+          <div class="hud-pill"><span data-i18n="common.time">Waktu</span> <span id="hud-time">01:30</span></div>
+          <div class="hud-pill">
+            <span data-i18n="fd.coordinate">Koordinat</span> <span id="hud-coordinate">-</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="fd-title" data-i18n="fd.title">Temukan Perbedaannya</h2>
+      <p id="fd-description" class="fd-description"></p>
+
+      <div class="fd-board" id="fd-board">
+        <div class="fd-pane">
+          <div class="fd-img-wrap" id="pane-a"></div>
+        </div>
+        <div class="fd-pane">
+          <div class="fd-img-wrap" id="pane-b"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay-win">
+      <div class="overlay-card">
+        <h2 data-i18n="fd.winTitle">Lukisan Selesai!</h2>
+        <p id="win-text" data-i18n="fd.winDefault">Kamu menemukan semua perbedaan.</p>
+        <div class="row">
+          <button class="btn secondary" onclick="restartLevel()" data-i18n="fd.replay">Ulangi</button>
+          <button class="btn" onclick="nextLevel()" data-i18n="fd.next">Lanjut ›</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay-time">
+      <div class="overlay-card">
+        <h2 data-i18n="fd.timeUpTitle">Waktu Habis</h2>
+        <p data-i18n="fd.timeUpText">Jangan menyerah, coba lagi!</p>
+        <div class="row">
+          <button class="btn secondary" onclick="goHome()" data-i18n="common.mainMenu">Menu Utama</button>
+          <button class="btn" onclick="restartLevel()" data-i18n="fd.tryAgain">Coba Lagi</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay-finish">
+      <div class="overlay-card">
+        <h2 data-i18n="common.congrats">Selamat!</h2>
+        <p data-i18n="fd.finishText">Kamu berhasil menyelesaikan semua 5 lukisan Affandi.</p>
+        <div class="row">
+          <button class="btn" onclick="goHome()" data-i18n="common.backToMenu">Kembali ke Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../shared/i18n.js"></script>
+    <script src="../../shared/main.js"></script>
+    <script src="diff-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

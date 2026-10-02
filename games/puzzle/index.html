@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+    <title data-i18n="title.pz">Puzzle Lukisan - Museum Affandi</title>
+    <link rel="stylesheet" href="../../shared/main.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page-puzzle">
+    <div class="screen pz-screen">
+      <div class="topbar">
+        <button class="btn ghost" onclick="goHome()" data-i18n="common.backMenu">← Menu Utama</button>
+        <div class="pz-hud">
+          <div class="hud-pill"><span data-i18n="common.painting">Lukisan</span> <span id="hud-level">1</span>/5</div>
+          <div class="hud-pill"><span data-i18n="pz.moves">Gerakan</span> <span id="hud-moves">0</span></div>
+          <div class="hud-pill"><span data-i18n="common.time">Waktu</span> <span id="hud-time">00:00</span></div>
+        </div>
+      </div>
+
+      <h2 class="pz-title" data-i18n="pz.title">Susun Lukisan Affandi</h2>
+
+      <div class="pz-picker" id="pz-picker"></div>
+
+      <div class="pz-layout">
+        <div class="pz-board-wrap">
+          <div class="pz-board" id="pz-board"></div>
+        </div>
+        <div class="pz-side">
+          <p class="pz-hint" data-i18n="pz.reference">Referensi gambar:</p>
+          <img id="pz-preview" class="pz-preview" src="" />
+          <p id="pz-description" class="pz-description"></p>
+          <div class="pz-controls">
+            <label class="pz-diff-label" data-i18n="pz.difficulty">Tingkat kesulitan</label>
+            <div class="pz-diffs">
+              <button
+                class="btn secondary small"
+                data-n="3"
+                onclick="setDifficulty(3)"
+                data-i18n="pz.easy"
+              >
+                Mudah 3×3
+              </button>
+              <button
+                class="btn secondary small"
+                data-n="4"
+                onclick="setDifficulty(4)"
+                data-i18n="pz.medium"
+              >
+                Sedang 4×4
+              </button>
+              <button
+                class="btn secondary small"
+                data-n="5"
+                onclick="setDifficulty(5)"
+                data-i18n="pz.hard"
+              >
+                Sulit 5×5
+              </button>
+            </div>
+            <button class="btn" onclick="shuffleBoard()" data-i18n="pz.reshuffle">Acak Ulang</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay-win">
+      <div class="overlay-card">
+        <h2 data-i18n="pz.winTitle">Selesai!</h2>
+        <p id="win-text" data-i18n="pz.winDefault">Lukisan berhasil disusun.</p>
+        <div class="row">
+          <button class="btn secondary" onclick="shuffleBoard()" data-i18n="pz.replay">Ulangi</button>
+          <button class="btn" onclick="nextLevel()" data-i18n="pz.nextPainting">Lukisan Berikutnya ›</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay-finish">
+      <div class="overlay-card">
+        <h2 data-i18n="common.congrats">Selamat!</h2>
+        <p data-i18n="pz.finishText">Kamu berhasil menyusun semua 5 lukisan Affandi.</p>
+        <div class="row">
+          <button class="btn" onclick="goHome()" data-i18n="common.backToMenu">Kembali ke Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../shared/i18n.js"></script>
+    <script src="../../shared/main.js"></script>
+    <script src="puzzle-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

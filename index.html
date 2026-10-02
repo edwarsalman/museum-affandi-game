@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+    <title data-i18n="title.home">Museum Affandi - Wahana Interaktif</title>
+    <link rel="stylesheet" href="shared/main.css" />
+  </head>
+  <body class="page-home">
+    <div class="screen">
+      <div class="topbar">
+        <div class="brand">
+          <div class="mark"></div>
+          <div>
+            <div class="title">Museum Affandi</div>
+            <div class="sub" data-i18n="home.brandSub">Wahana Interaktif Layar Sentuh</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="intro-panel" class="intro-panel show">
+        <div class="intro-badge" data-i18n="home.badge">Museum Affandi Experience</div>
+        <h1 data-i18n-html="home.heading">Game seru buat kenal<br />karya dari Maestro</h1>
+        <p data-i18n="home.intro">Jelajahi Museum Affandi lewat permainan yang santai, edukatif.</p>
+
+        <div class="hero-actions">
+          <button id="start-adventure" class="btn" type="button" data-i18n="home.start">Mulai Petualangan</button>
+        </div>
+
+        <div class="hero-stat-grid">
+          <div class="stat-item">
+            <strong>3</strong>
+            <span data-i18n="home.stat1">Game seru</span>
+          </div>
+          <div class="stat-item">
+            <strong>100%</strong>
+            <span data-i18n="home.stat2">Interaktif</span>
+          </div>
+          <div class="stat-item">
+            <strong data-i18n="home.stat3">Fun</strong>
+            <span data-i18n="home.stat3sub">Untuk semua usia</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="game-panel" class="game-panel hidden">
+        <div class="landing-shell">
+          <div class="feature-banner">
+            <span data-i18n="home.banner1">✨ Karya Affandi</span>
+            <span data-i18n="home.banner2">🎨 Budaya & Seni</span>
+            <span data-i18n="home.banner3">🧩 Permainan Seru</span>
+          </div>
+        </div>
+
+        <div class="game-grid">
+          <div
+            class="game-card"
+            onclick="goTo('games/find-the-diff/index.html')"
+          >
+            <div
+              class="thumb"
+              style="
+                background-image: url(&quot;assets/images/lukisan/lukisan1_original.jpeg&quot;);
+              "
+            >
+              <span data-i18n="common.paintings5">5 Lukisan</span>
+            </div>
+            <div class="body">
+              <h3 data-i18n="home.card1.title">Cari Perbedaan</h3>
+              <p data-i18n="home.card1.desc"></p>
+              <div class="play" data-i18n="common.play">Mainkan ›</div>
+            </div>
+          </div>
+
+          <div class="game-card" onclick="goTo('games/puzzle/index.html')">
+            <div
+              class="thumb"
+              style="
+                background-image: url(&quot;assets/images/lukisan/lukisan1_puzzle.jpeg&quot;);
+              "
+            >
+              <span data-i18n="common.paintings5">5 Lukisan</span>
+            </div>
+            <div class="body">
+              <h3 data-i18n="home.card2.title">Puzzle Lukisan</h3>
+              <p data-i18n="home.card2.desc"></p>
+              <div class="play" data-i18n="common.play">Mainkan ›</div>
+            </div>
+          </div>
+
+          <div class="game-card" onclick="goTo('games/ular-tangga/index.html')">
+            <div
+              class="thumb"
+              style="
+                background-image: url(&quot;assets/images/ui/Affandii1.jpeg&quot;);
+              "
+            >
+              <span data-i18n="home.card3.badge">2-4 Pemain</span>
+            </div>
+            <div class="body">
+              <h3 data-i18n="home.card3.title">Ular Tangga Museum</h3>
+              <p data-i18n="home.card3.desc"></p>
+              <div class="play" data-i18n="common.play">Mainkan ›</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="idle-screen">
+      <h2 data-i18n="idle.title">Sentuh Layar untuk Mulai</h2>
+      <p data-i18n="idle.sub">Museum Affandi — Wahana Interaktif</p>
+      <div class="pulse"></div>
+    </div>
+
+    <script src="shared/i18n.js"></script>
+    <script src="shared/main.js"></script>
+    <script>
+      initIdleScreen(90000);
+
+      const introPanel = document.getElementById("intro-panel");
+      const gamePanel = document.getElementById("game-panel");
+      const startButton = document.getElementById("start-adventure");
+
+      if (startButton) {
+        startButton.addEventListener("click", () => {
+          introPanel.classList.add("hidden");
+          gamePanel.classList.remove("hidden");
+          setTimeout(() => {
+            gamePanel.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 180);
+        });
+      }
+    </script>
+  </body>
+</html>
